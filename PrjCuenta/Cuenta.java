@@ -1,3 +1,7 @@
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class Cuenta
 {
     private String codCuenta = "cta-";
@@ -14,7 +18,10 @@ public class Cuenta
     }
     
     Cuenta(double pSaldo){
-        
+        saldo = pSaldo;
+        fechaCreacion = determinarFechaCreacion();
+        cantCuentasCreadas++;
+        codCuenta += cantCuentasCreadas;
     }
     
     public void setNombreCuentaCuentaHabiente(String pNombreCuentaHabiente) {
@@ -30,15 +37,27 @@ public class Cuenta
     }
     
     public double depositar(double monto) {
+        if(validarDeposito(monto)){
+            saldo += monto;
+            cantDepositosRealizados++;
+        }
         return saldo;
     }
     
     public double retirar(double monto) {
+        if(validarRetiro(monto)){
+            saldo -= monto;
+            cantRetirosRealizados++;
+        }
         return saldo;
     }
     
+    private boolean validarDeposito(double monto) {
+        return monto > 0;
+    }
+    
     private boolean validarRetiro(double monto) {
-        return monto < saldo;
+        return monto <= saldo;
     }
     
     public static int getCantCuentasCreadas() {
@@ -46,6 +65,21 @@ public class Cuenta
     }
     
     public String toString() {
-        return codCuenta;
+        String msg = "";
+        
+        msg += "-------- Información de la Cuenta ---------";
+        msg += "Código de cuenta: " + codCuenta + "\n";
+        msg += "Nombre de Cuenta Habiente: " + nombreCuentaHabiente + "\n";
+        msg += "Saldo: " + saldo + "\n";
+        msg += "Fecha de creación: " + saldo + "\n";
+        msg += "Depositos realizados: " + saldo + "\n";
+        msg += "Retiros realizados: " + saldo + "\n";
+        return msg;
+    }
+    
+    private String determinarFechaCreacion() {
+        Date fecha = new Date(System.currentTimeMillis());
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+        return formatoFecha.format(fecha);
     }
 }
