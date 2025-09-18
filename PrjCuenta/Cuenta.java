@@ -67,13 +67,13 @@ public class Cuenta
     public String toString() {
         String msg = "";
         
-        msg += "-------- Información de la Cuenta ---------";
+        msg += "-------- Información de la Cuenta ---------\n";
         msg += "Código de cuenta: " + codCuenta + "\n";
         msg += "Nombre de Cuenta Habiente: " + nombreCuentaHabiente + "\n";
         msg += "Saldo: " + saldo + "\n";
-        msg += "Fecha de creación: " + saldo + "\n";
-        msg += "Depositos realizados: " + saldo + "\n";
-        msg += "Retiros realizados: " + saldo + "\n";
+        msg += "Fecha de creación: " + fechaCreacion + "\n";
+        msg += "Depositos realizados: " + cantDepositosRealizados + "\n";
+        msg += "Retiros realizados: " + cantRetirosRealizados + "\n";
         return msg;
     }
     
