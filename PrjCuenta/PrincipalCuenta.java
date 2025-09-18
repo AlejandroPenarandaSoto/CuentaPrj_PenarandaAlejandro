@@ -117,7 +117,7 @@ public class PrincipalCuenta
                 }
                 case "8": { 
                     if (actual < 0 || cuentas.isEmpty()) {
-                        System.out.println("Debe crear y seleccionar un rover primero.");
+                        System.out.println("Debe crear y seleccionar una cuenta primero.");
                         break;
                     }
                     System.out.println(cuentas.get(actual).toString());
@@ -125,7 +125,7 @@ public class PrincipalCuenta
                 }
                 case "9": { 
                     if (actual < 0 || cuentas.isEmpty()) {
-                        System.out.println("Debe crear y seleccionar un rover primero.");
+                        System.out.println("Debe crear y seleccionar una cuenta primero.");
                         break;
                     }
                     System.out.print("Ingrese el nuevo nombre de la cuenta: ");
